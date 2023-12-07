@@ -36,16 +36,17 @@ const Sign_up = ()=>{
   }
 
 
-    axios.post('https://655239d55c69a7790329ba98.mockapi.io/BooksUsers', {
+    axios.put('https://655239d55c69a7790329ba98.mockapi.io/BooksUsers', {
         name: inputs.name,
         email: inputs.email,
         password: inputs.password,
     })
     .then((response)=>{
         console.log("created");
-        localStorage.setItem('user', JSON.stringify(inputs))
-        localStorage.setItem('isLoggIn', true)
-        navigate('/')
+        // localStorage.setItem('user', JSON.stringify(inputs))
+        // localStorage.setItem('isLoggIn', true)
+        
+        navigate('/SignIn')
 
     })
 }

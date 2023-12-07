@@ -51,6 +51,8 @@ function SignIn() {
       if (result) {
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('isLoggIn', true);
+        localStorage.setItem('userId', result.id)
+        
         navigate('/');
       } else {
         setErrorMes('Email or Password is incorrect');

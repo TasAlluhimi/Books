@@ -5,6 +5,9 @@ import SignIn from '../Pages/SignIn'
 import SignUp from '../Pages/SignUp'
 import Error from '../Errors/Error'
 import Books from '../Componenets/Books'
+import Faivorate from '../Pages/Faivorate'
+import Readed from '../Pages/Readed'
+import BookDetails from '../Pages/BookDetails'
 
 function Route() {
   return (
@@ -15,6 +18,9 @@ function Route() {
             <R path='/SignUp' element={<SignUp/>}></R>
             <R path='/*' element={<Error/>}></R>
             <R path='/Books' element={<Books/>}></R>
+            <R path='/Faivorate' element={<Faivorate/>}></R>
+            <R path='/Readed' element={<Readed/>}></R>
+            <R path='/BookDetails/:id' element={<BookDetails/>}></R>
         </Routes>
     </>
   )

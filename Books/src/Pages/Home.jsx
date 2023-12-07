@@ -10,7 +10,7 @@ function Home() {
   return (
     <>
     {/* <NavPar/> */}
-    <body className='bg-[#EAEAF5]'>
+    <div className='bg-[#EAEAF5]'>
 
       <NavPar/>
 
@@ -22,9 +22,10 @@ function Home() {
           <div className='max-sm:flex max-sm:flex-col md:flex md:flex-col 
           max-md:flex max-md:flex-col lg:grid lg:grid-cols-2'>
 
-              <div className='font-sans text-4xl font-bold 
+            <div className='flex flex-col justify-center items-center gap-10'>
+            <div className='font-sans text-4xl font-bold 
             max-w-5xl lg:text-7xl lg:pr-24 md:text-6xl mt-16'>it's never too late
-              to start reading c:
+              to start reading c:</div>
               <button
                   className="px-3 py-2.5 leading-none text-gray-200 
                   rounded-lg focus:outline-none focus:shadow-outline 
@@ -34,7 +35,9 @@ function Home() {
                   onClick={()=>{{navigate('/Books')}}}
                 >
                   Books
-                </button></div>
+                </button>
+
+                </div>
               
               <div className='border flex items-center 
               justify-center'>
@@ -49,7 +52,7 @@ function Home() {
 
         {/* <Books/> */}
 
-        </body>
+        </div>
     </>
   )
 }
