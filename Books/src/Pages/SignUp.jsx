@@ -10,6 +10,7 @@ function SignUp() {
     name: '',
     email: '',
     password: '',
+    
   });
 
   const addInputs = (event)=>{
@@ -36,10 +37,12 @@ const Sign_up = ()=>{
   }
 
 
-    axios.put('https://655239d55c69a7790329ba98.mockapi.io/BooksUsers', {
+    axios.post('https://655239d55c69a7790329ba98.mockapi.io/BooksUsers', {
         name: inputs.name,
         email: inputs.email,
         password: inputs.password,
+        faiv_list: [],
+        read_list: [],
     })
     .then((response)=>{
         console.log("created");

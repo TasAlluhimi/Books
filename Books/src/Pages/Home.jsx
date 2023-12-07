@@ -1,8 +1,9 @@
 import React from 'react'
 import main from '../assets/fly.svg'
 import NavPar from '../Componenets/NavPar'
-import Books from '../Componenets/Books'
+import Books from './Books'
 import { useNavigate } from 'react-router-dom'
+import Footer from '../Componenets/Footer'
 
 function Home() {
 
@@ -15,7 +16,7 @@ function Home() {
       <NavPar/>
 
         <div className='container mx-auto p-8 
-        h-screen overflow-hidden md:rounded-lg md:p-10 lg:p-12'>
+         md:rounded-lg md:p-10 lg:p-12'>
 
           {/* <div className="h-32 md:h-40"></div> */}
 
@@ -42,7 +43,7 @@ function Home() {
               <div className='border flex items-center 
               justify-center'>
                 <img src={main}
-                className='w-96'
+                className='w-[100%]'
                 alt="" />
               </div>
 
@@ -51,7 +52,7 @@ function Home() {
         </div>
 
         {/* <Books/> */}
-
+<Footer/>
         </div>
     </>
   )

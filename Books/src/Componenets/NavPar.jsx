@@ -100,29 +100,31 @@ function NavPar() {
             </li>
 
             {loggedIn? 
-            <div className='flex gap-10'>
+           
             <li>
               <Link
-                to="/Profile"
+                to="/Faivorate"
                 className={`block py-2 px-3 md:p-0 rounded 
                 md:dark:hover:bg-transparent `}
               >
                 Faivorate
               </Link>
             </li>
-
-            <li>
-              <Link
-                to="/Profile"
-                className={`block py-2 px-3 md:p-0 rounded 
-                md:dark:hover:bg-transparent `}
-              >
-                Readed
-              </Link>
-            </li>
-            </div>
-            
             :''}
+
+              {loggedIn? 
+             <li>
+             <Link
+               to="/Readed"
+               className={`block py-2 px-3 md:p-0 rounded 
+               md:dark:hover:bg-transparent `}
+             >
+               Readed
+             </Link>
+           </li>
+           :''}
+
+           
             
           </ul>
         </div>

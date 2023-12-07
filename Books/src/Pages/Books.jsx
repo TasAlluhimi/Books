@@ -1,13 +1,20 @@
 import React from 'react'
 import axios from 'axios'
-import NavPar from './NavPar'
+import NavPar from '../Componenets/NavPar'
 import { useNavigate, Link } from 'react-router-dom'
+import Footer from '../Componenets/Footer'
 
 function Books() {
 
     const navigate = useNavigate()
     const [data, setData] = React.useState([])
     const [search, setSearch] = React.useState('')
+
+    const [favList,setFavList] = React.useState([]);
+    const [readList,setReadList] = React.useState([]);
+    // const [prevList,setPrevList] = React.useState([]);
+
+    const userId = localStorage.getItem('userId');
     
 
     const filtered = data.filter((item)=> item.title.toLowerCase().includes(search.toLowerCase()))
@@ -28,13 +35,46 @@ function Books() {
     }, [])
 
     const faiv =(rank)=>{
-        navigate('/Faivorate')
-        localStorage.setItem('f_rank', rank)
+        // navigate('/Faivorate')
+        // localStorage.setItem('f_rank', rank)
+
+        const book = data.find((item) => item.rank === rank);
+        if (book) {
+          setFavList((prevList) => [...prevList, book]);
+        // setFavouriteList([...prevList, book]);
+
+
+        axios.put(`https://655239d55c69a7790329ba98.mockapi.io/BooksUsers/${userId}`, {
+          faiv_list: [...favList,book],
+
+          })
+          .then(function (response) {
+            alert("Added to favourite list successfully")
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
     }    
     
     const read =(rank)=>{
-      localStorage.setItem('r_rank', rank)
-        navigate('/Readed')
+      // localStorage.setItem('r_rank', rank)
+        // navigate('/Readed')
+
+        const book = data.find((item) => item.rank === rank);
+        if (book) {
+            setReadList((prevList) => [...prevList, book]);
+
+        axios.put(`https://655239d55c69a7790329ba98.mockapi.io/BooksUsers/${userId}`, {
+            read_list: [...readList,book],
+          })
+          .then(function (response) {
+            alert("Added to read list successfully")
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
     }
 
   return (
@@ -110,6 +150,7 @@ className=' rounded-md p-2'
 
 </div>
 </div>
+<Footer/>
     </>
   )
 }
