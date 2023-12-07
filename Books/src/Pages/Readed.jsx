@@ -10,7 +10,7 @@ function Readed() {
     const [data, setData] = useState([])
 
 
-    React.useEffect(()=>{
+    useEffect(()=>{
       axios.get(`https://655239d55c69a7790329ba98.mockapi.io/BooksUsers/${userId}`)
       .then(res=>{
         console.log(res.data.read_list);
