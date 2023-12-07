@@ -7,7 +7,7 @@ function Faivorate() {
   
     const userId = localStorage.getItem('userId');
     const [data, setData] = useState([])
-
+    const navigate = useNavigate()
 
     React.useEffect(()=>{
       axios.get(`https://655239d55c69a7790329ba98.mockapi.io/BooksUsers/${userId}`)
@@ -59,18 +59,11 @@ function Faivorate() {
             <div className="flex flex-col justify-center items-center
             gap-3 p-3">
                 <span className="block font-semibold text-xl">{item.title}</span>
-                <div className='flex w-full justify-between'>
-                    <button className="bg-white rounded-full 
-                    text-purple-500 text-xs font-bold px-3 py-2 flex items-center z-10 hover:scale-105"
-                    onClick={() => {faiv(item.rank)}}
-                    >♡</button>
-    
-                    <button className="bg-white rounded-full text-purple-500 text-xs z-10 hover:scale-105 font-bold px-3 py-2 
+                
+                <button className="bg-white rounded-full text-purple-500 text-xs z-10 hover:scale-105 font-bold px-3 py-2 
                     flex items-center"
-                    onClick={() => {read(item.rank);}}
-                    >Mark Read</button>                   
-                  
-                </div>
+                    onClick={()=>{navigate('/Books')}}
+                    >Back</button> 
                 
             </div>
         </div>
